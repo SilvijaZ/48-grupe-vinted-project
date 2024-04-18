@@ -14,42 +14,44 @@ import { PageZaidimaiItem } from "./components/pramogos-zaidimai/PageZaidimaiIte
 import { PageMuzika } from "./components/pramogos-muzika/PageMuzika";
 import { PageMuzikosItem } from "./components/pramogos-muzika/PageMuzikosItem";
 import { PageGyvunamsItem } from "./components/gyvunams-item-list/PageGyvunamsItem";
-// // import { ContextWrapper } from "./context/GlobalContext";
+import { ContextWrapper } from "./context/GlobalContext";
 
  
 function App() {
   return (
-      <BrowserRouter>
-        <Routes>
-          <Route Component={BasicLayout}>
-            <Route index path='/' element={<PageHome />} />
-            {/* <Route path='/moterims' element={<></>} />
-            <Route path='/vyrams' element={<></>} />
-            <Route path='/vaikams' element={<></>} />
-            <Route path='/namams' element={<></>} /> */}
-            <Route path='/pramogos' element={<PagePramogos />} />
-            <Route path='/pramogos/:id' element={<PagePramogosItem />} />
-            <Route path='/pramogos/vaizdo-zaidimai' element={<PageVaizdoZaidimai />} />
-            <Route path='/pramogos/vaizdo-zaidimai/:id' element={<PageVaizdoZaidimaiItem />} />
-            <Route path='/pramogos/zaidimai' element={<PageZaidimai />} />
-            <Route path='/pramogos/zaidimai/:id' element={<PageZaidimaiItem />} />
-            <Route path='/pramogos/muzika' element={<PageMuzika />} />
-            <Route path='/pramogos/muzika/:id' element={<PageMuzikosItem />} />
-            <Route path='/pramogos/knygos' element={<PageKnygos />} />
-            <Route path='/pramogos/knygos/:id' element={<PageKnygosItem />} />
+    <ContextWrapper>
+        <BrowserRouter>
+          <Routes>
+            <Route Component={BasicLayout}>
+              <Route index path='/' element={<PageHome />} />
+              {/* <Route path='/moterims' element={<></>} />
+              <Route path='/vyrams' element={<></>} />
+              <Route path='/vaikams' element={<></>} />
+              <Route path='/namams' element={<></>} /> */}
+              <Route path='/pramogos' element={<PagePramogos />} />
+              <Route path='/pramogos/:id' element={<PagePramogosItem />} />
+              <Route path='/pramogos/vaizdo-zaidimai' element={<PageVaizdoZaidimai />} />
+              <Route path='/pramogos/vaizdo-zaidimai/:id' element={<PageVaizdoZaidimaiItem />} />
+              <Route path='/pramogos/zaidimai' element={<PageZaidimai />} />
+              <Route path='/pramogos/zaidimai/:id' element={<PageZaidimaiItem />} />
+              <Route path='/pramogos/muzika' element={<PageMuzika />} />
+              <Route path='/pramogos/muzika/:id' element={<PageMuzikosItem />} />
+              <Route path='/pramogos/knygos' element={<PageKnygos />} />
+              <Route path='/pramogos/knygos/:id' element={<PageKnygosItem />} />
 
-            <Route path='/gyvunams' element={<PageGyvunams />} />
-            <Route path='/gyvunams/:id' element={<PageGyvunamsItem />} />
-            <Route path='/gyvunams/sunys' element={<PageGyvunamsItem />} />
-            <Route path='/gyvunams/sunys/:id' element={<PageGyvunamsItem />} />
-            <Route path='/gyvunams/kates' element={<PageGyvunamsItem />} />
-            <Route path='/gyvunams/kates/:id' element={<PageGyvunamsItem />} />
-            {/* <Route path='/apie-mus' element={<></>} />
-            <Route path='/musu-platforma' element={<></>} /> */}
-            <Route path='*' element={<Page404 />} />
-            </Route>
-        </Routes>
-      </BrowserRouter>
+              <Route path='/gyvunams' element={<PageGyvunams />} />
+              <Route path='/gyvunams/:id' element={<PageGyvunamsItem />} />
+              <Route path='/gyvunams/sunys' element={<PageGyvunamsItem />} />
+              <Route path='/gyvunams/sunys/:id' element={<PageGyvunamsItem />} />
+              <Route path='/gyvunams/kates' element={<PageGyvunamsItem />} />
+              <Route path='/gyvunams/kates/:id' element={<PageGyvunamsItem />} />
+              {/* <Route path='/apie-mus' element={<></>} />
+              <Route path='/musu-platforma' element={<></>} /> */}
+              <Route path='*' element={<Page404 />} />
+              </Route>
+          </Routes>
+        </BrowserRouter>
+      </ContextWrapper>
   );
 }
  
