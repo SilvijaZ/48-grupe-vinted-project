@@ -1,0 +1,16 @@
+/* Header*/
+
+.header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 0.1rem solid #ccc;
+}
+
+@media (max-width: 1000px) {
+    .header {
+       margin: calc((100% - 500px) / 2);
+    }
+}

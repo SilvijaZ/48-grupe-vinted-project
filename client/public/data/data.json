@@ -1,0 +1,74 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Prekės pavadinimas 1",
+            "img": "http://localhost:4824/img/knygos1.jpeg",
+            "price": 2,
+            "category": "knyga"
+        },
+        {
+            "id": 2,
+            "name": "Prekės pavadinimas 2",
+            "img": "http://localhost:4824/img/knygos2.jpeg",
+            "price": 1.50,
+            "category": "knyga"
+        },
+        {
+            "id": 3,
+            "name": "Prekės pavadinimas 3",
+            "img": "http://localhost:4824/img/knygos3.jpeg",
+            "price": 3,
+            "category": "knyga"
+        },
+        {
+            "id": 4,
+            "name": "Prekės pavadinimas 4",
+            "img": "http://localhost:4824/img/knygos4.jpeg",
+            "price": 8,
+            "category": "knyga"
+        },
+        {
+            "id": 5,
+            "name": "Prekės pavadinimas 5",
+            "img": "http://localhost:4824/img/knygos5.jpeg",
+            "price": 2,
+            "category": "knyga"
+        },
+        {
+            "id": 6,
+            "name": "Prekės pavadinimas 6",
+            "img": "http://localhost:4824/img/muz1.jpeg",
+            "price": 1.50,
+            "category": "muzika"
+        },
+        {
+            "id": 7,
+            "name": "Prekės pavadinimas 7",
+            "img": "http://localhost:4824/img/muz2.jpeg",
+            "price": 1.50,
+            "category": "muzika"
+        },
+        {
+            "id": 8,
+            "name": "Prekės pavadinimas 8",
+            "img": "http://localhost:4824/img/muz3.jpeg",
+            "price": 1.50,
+            "category": "muzika"
+        },
+        {
+            "id": 9,
+            "name": "Prekės pavadinimas 9",
+            "img": "http://localhost:4824/img/muz4.jpeg",
+            "price": 1.50,
+            "category": "muzika"
+        },
+        {
+            "id": 10,
+            "name": "Prekės pavadinimas 10",
+            "img": "http://localhost:4824/img/muz5.jpeg",
+            "price": 1.50,
+            "category": "muzika"
+        }
+    ]
+}

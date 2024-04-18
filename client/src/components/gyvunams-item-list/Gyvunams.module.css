@@ -1,0 +1,23 @@
+.cardImage {
+    object-fit: cover;
+    object-position: center;
+}
+
+.socials{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+.socials > .socialLink{
+	color: grey;
+    margin: 8px;
+    justify-content: center;
+}
+
+.socials > .socialLink:hover{
+    color: rgb(75, 0, 141);
+}
