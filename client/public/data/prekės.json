@@ -1,0 +1,22 @@
+{
+    "prekės": [
+        {
+            "id": 1,
+            "name": "'Ugly Love' knyga",
+            "img": "http://localhost:4824/img/knygos1.jpeg",
+            "price": 2,
+            "category": "knyga",
+            "uploadTime": 5,
+            "description": "Gera kokybė, beveik nenešiota prekė, be trūkumų"
+        },
+        {
+            "id": 2,
+            "name": "'Ugly Love' knyga",
+            "img": "http://localhost:4824/img/knygos2.jpeg",
+            "price": 3,
+            "category": "knyga",
+            "uploadTime": 19,
+            "description": "Gera kokybė, beveik nenešiota prekė, be trūkumų"
+        }
+    ]
+}
