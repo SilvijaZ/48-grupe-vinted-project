@@ -2,7 +2,7 @@
     "prekės": [
         {
             "id": 1,
-            "name": "'Ugly Love' knyga",
+            "pavadinimas": "'Ugly Love' knyga",
             "img": "http://localhost:4824/img/knygos1.jpeg",
             "price": 2,
             "category": "knyga",
@@ -13,7 +13,7 @@
         },
         {
             "id": 2,
-            "name": "'Mažasis Princas' knyga",
+            "pavadinimas": "'Mažasis Princas' knyga",
             "img": "http://localhost:4824/img/knygos2.jpeg",
             "price": 3,
             "category": "knyga",
@@ -125,43 +125,43 @@
             "id": 12,
             "name": "Telefono dėkliukas",
             "img": "http://localhost:4824/img/vaiz2.jpeg",
-            "price": 12.58,
+            "price": 5,
             "category": "PC-zaidimai",
             "uploadTime": 6,
-            "description": "gera būklė, modelis Iphone 14 plus",
+            "description": "iPhone 14 naujas",
             "city": "Šiauliai",
             "pay": "Mokėjimo kortele"
         },
         {
             "id": 13,
-            "name": "Promotional poster",
+            "name": "Cyberpunk 2077 Johnny Silverhand Figūrėlė",
             "img": "http://localhost:4824/img/vaiz3.jpeg",
-            "price": 4,
+            "price": 99,
             "category": "PC-zaidimai",
             "uploadTime": 10,
-            "description": "GTA Grand Theft Auto Liberty City Stories A2 Promotional Poster",
+            "description": "Cyberpunk 2077 Johnny Silverhand Figūrėlė playstation 4. Komplekte yra figūrėlė ir dėžė",
             "city": "Šiauliai",
             "pay": "Mokėjimo kortele"
         },
         {
             "id": 14,
-            "name": "Dead Alliance vaizdo žaidimas",
+            "name": "Life is Strange 2 PlayStation 4",
             "img": "http://localhost:4824/img/vaiz4.jpeg",
             "price": 9,
             "category": "PC-zaidimai",
             "uploadTime": 12,
-            "description": "Dead Alliance: Day One Edition - Xbox One",
+            "description": "Diskas ir dėžutė tvarkingi, nesubraižyti, be defektų",
             "city": "Mažeikiai",
             "pay": "Mokėjimo kortele"
         },
         {
             "id": 15,
-            "name": "Cabelas Dangerous Hunts vaizdo žaidimas",
+            "name": "Ps4 Pro Death Stranding Edition",
             "img": "http://localhost:4824/img/vaiz5.jpeg",
-            "price": 4.50,
+            "price": 44.50,
             "category": "PC-zaidimai",
             "uploadTime": 12,
-            "description": "Top Shot Elite Gun Xbox 360/Xbox One / Series X",
+            "description": "Labai gražios išvaizdos ir puikios būklės žaidimų kompiuteris.Išskirtinis modelis. Cuh-7216b naujausias pro modelis",
             "city": "Marijampolė",
             "pay": "Mokėjimo kortele"
         },
@@ -222,3 +222,6 @@
         }
     ]
 }
+
+
+
