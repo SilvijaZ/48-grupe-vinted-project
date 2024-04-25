@@ -2,7 +2,7 @@
     "prekės": [
         {
             "id": 1,
-            "pavadinimas": "'Ugly Love' knyga",
+            "name": "'Ugly Love' knyga",
             "img": "http://localhost:4824/img/knygos1.jpeg",
             "price": 2,
             "category": "knyga",
@@ -13,7 +13,7 @@
         },
         {
             "id": 2,
-            "pavadinimas": "'Mažasis Princas' knyga",
+            "name": "'Mažasis Princas' knyga",
             "img": "http://localhost:4824/img/knygos2.jpeg",
             "price": 3,
             "category": "knyga",
