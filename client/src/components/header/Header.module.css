@@ -9,8 +9,53 @@
     border-bottom: 0.1rem solid #ccc;
 }
 
-@media (max-width: 1000px) {
-    .header {
-       margin: calc((100% - 500px) / 2);
-    }
+.btn1{
+    background-color: white;
+    border-radius: 0.3em;
+    padding: 5px 10px;
+    color: #007782;
+    border: 0.2rem solid #007782;
+    font-size: 18px;
+}
+
+.btn1:hover{
+    background-color: #007782;
+    border-radius: 0.3em;
+    padding: 5px 10px;
+    color: white;
+}
+
+.btn2{
+    background-color: #007782;
+    border-radius: 0.3em;
+    padding: 5px 10px;
+    color: white;
+    border: 0.2rem solid #007782;
+    font-size: 18px;
+}
+
+.btn2:hover{
+    background-color: white;
+    border-radius: 0.3em;
+    padding: 5px 10px;
+    color: #007782;
+}
+
+.btn3{
+    background-color: #007782;
+    border-radius: 0.3em;
+    padding: 5px 10px;
+    color: white;
+    border: 0.2rem solid #007782;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.btn3:hover{
+    text-decoration: none;
+}
+
+.otherBtn{
+    display: flex;
+    gap: 15px;
 }

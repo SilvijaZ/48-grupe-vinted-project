@@ -1,34 +1,44 @@
 /* eslint-disable react/prop-types */
-// import { useContext } from "react";
-// import { GlobalContext } from "../../context/GlobalContext";
+
 import { KnygosCard } from "./KnygosCard";
-// import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { NoData } from "../NoData";
 
 
 
-export function PageKnygos( { data }) {
+export function PageKnygos() {
+    const [knygosData, setKnygosData] = useState([]); 
 
 
+    const dataUrl = 'https://raw.githubusercontent.com/SilvijaZ/48-grupe-vinted-project/main/client/public/data/prek%C4%97s.json';
 
-    // const { allKnygosList, updateKnygosList } = useContext(GlobalContext);
 
-    // useEffect(() => {
-    //     if(allKnygosList.length === 0){
-    //         fetch('http://localhost:4818/api/knygos-list/knyga') // Pakeiskite kategoriją pagal poreikį
-    //             .then(res => res.json())
-    //             .then(data => updateKnygosList(data.list))
-    //             .catch(console.error);
-    //     }
-    // // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [allKnygosList]);
+    useEffect(() => {
+        fetch(dataUrl)
+            .then(res => res.json())
+            .then(data => {
+                const knygosData = data.prekės.filter(prekė => prekė.category === 'knyga');
+                setKnygosData(knygosData);
+            })
+            .catch(e => console.error(e));
+    }, []);
+
 
     return (
         <section className="container">
-                <h1>Knygu page list</h1>
+            <h1>Knygos</h1>
             <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
-            <KnygosCard />
-                {data.map((item, index) => <KnygosCard key={index} data={item} />)}
+                {knygosData.length === 0 ? (
+                    <NoData />
+                ) : (
+                    knygosData.map(prekė => (
+                        <KnygosCard key={prekė.id} prekė={prekė} />
+                    ))
+                )}
             </div>
         </section>
     );
 }
+
+
+

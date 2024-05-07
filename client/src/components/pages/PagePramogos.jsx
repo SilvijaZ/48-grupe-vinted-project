@@ -72,9 +72,6 @@ export function PagePramogos(){
            
 
             <hr />
-
-            
-
             <PramogosItemList />
         </section>
 

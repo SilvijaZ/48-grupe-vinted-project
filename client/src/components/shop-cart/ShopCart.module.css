@@ -1,0 +1,44 @@
+.cart{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.thead{
+    font-size: 2rem;  
+    text-align: center;  
+}
+
+
+.thead td{
+    border-bottom: 0.1rem solid #007782;;
+    padding: 1.5rem;
+}
+
+.tbody{
+    font-size: 1.5rem;
+    text-align: center;  
+}
+
+.name{
+    text-align: left;  
+}
+
+.tbody td{
+  padding: 0.9rem;
+}
+
+.button{
+    border-style: none;
+    background-color: white;
+    padding: 0 15px;
+}
+
+.total{
+    font-size: 2rem;
+}
+
+.total span{
+    font-weight: bold;
+    color: #007782;
+}

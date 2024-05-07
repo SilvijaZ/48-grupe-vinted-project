@@ -1,7 +1,7 @@
 
 import { useContext } from 'react';
 import { PramogosItemCard } from './PramogosItemCard';
-import { GlobalContext } from '../../context/GlobalContext';
+import { GlobalContext } from '../../content/GlobalContext';
 import { useEffect } from 'react';
 
 
@@ -9,14 +9,13 @@ export function PramogosItemList(){
     const { allPramogosList, updateAllPramogosList } = useContext(GlobalContext);
 
     useEffect(() => {
-        if(allPramogosList.length === 0){
             fetch('http://localhost:4824/api/pramogos-list')
                 .then(res => res.json())
-                .then(data => updateAllPramogosList(data.list))
+                .then(data => updateAllPramogosList(data.pramogosList))
                 .catch(console.error);
-        }
+        
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [allPramogosList]);
+    }, []);
 
 
     return (

@@ -1,8 +1,9 @@
+import { PramogosItemList } from "../pramogos-item-list/PramogosItemList";
 
 export function PageHome(){
     return (
         <>
-        <h1>Page Home content</h1>
+          <PramogosItemList />
         </>
     );
 }

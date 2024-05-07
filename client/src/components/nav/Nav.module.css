@@ -1,18 +1,17 @@
 /* Nav */
 
 .mainNav{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    flex-direction: row;
-    gap: 15px;
+    justify-content: space-around;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: calc((40% - 40%) / 2);
+    padding-top: 0;
 }
 
 .mainNav > .navLink {
-    padding: 0px 10px 0px 10px;
     font-size: 18px;
     line-height: 30px;
     color: grey;

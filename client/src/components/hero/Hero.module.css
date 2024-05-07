@@ -1,0 +1,15 @@
+.heroImg{
+    height: 800px;
+    background-image: url('../../assets//img/hero.jpg');
+    background-repeat: no-repeat;
+    margin-top: 40px;
+}
+
+.table{
+    width: 400px;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+}
