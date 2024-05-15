@@ -2,8 +2,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import {Logo} from '../Logo/Logo';
 import { Nav } from '../nav/Nav';
-import style from './Header.module.css';
-import { GlobalContext } from '../../content/GlobalContext';
+import style from '../header/Header.module.css';
+import { GlobalContext } from '../../context/GlobalContext';
 import { useContext } from 'react';
 import profilePic from '../../assets/img/profile-picture.jpg';
 import { TbShoppingCart } from "react-icons/tb";

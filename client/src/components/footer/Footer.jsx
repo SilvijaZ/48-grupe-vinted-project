@@ -9,8 +9,7 @@ export function Footer(){
             <footer className={style.footer}>
                 <div className={style.footerLinks}>
                     <Link to='/' className={style.footerLink}>Vinted</Link>
-                    <Link to='/musu-platforma' className={style.footerLink}>Mūsų platforma</Link>
-                    <Link to='/apie-mus' className={style.footerLink}>Apie mus</Link>
+                    <Link to='/about' className={style.footerLink}>About</Link>
                 </div>
                 <p className={style.footerText}>&copy; 2024 - All rights reserved</p>
             </footer>

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import style from './Hero.module.css';
-import { GlobalContext } from '../../content/GlobalContext';
+import { GlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import style2 from '../header/Header.module.css';
 
@@ -15,7 +15,7 @@ export function Hero(){
     const userSee = (
         <div className="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
             <button onClick={handleBtnClick} type="button" className={style2.btn3}>
-                <Link className={style.link} to="/register">
+                <Link className={style.link} to="/account/register">
                     Įkelti prekę 
                 </Link>
             </button>
@@ -63,8 +63,6 @@ export function Hero(){
                      </div>
                  </div>
              </div> */}
-       
-        
         </>
     );
 }

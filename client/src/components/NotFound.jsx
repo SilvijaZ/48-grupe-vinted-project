@@ -1,6 +1,6 @@
 
 import imgErr from '../../src/assets/img/err.jpg';
-import style from '../../src/components/pramogos-item-list/Pramogos.module.css';
+import style from '../../src/pages/my-item-list/Items.module.css';
 
 export function NotFound(){
     return (
