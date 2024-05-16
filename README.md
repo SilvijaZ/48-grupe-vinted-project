@@ -11,7 +11,7 @@
 <br />
 
 
-<br>_The first Vinted team project_
+<br>_The first Vinted react project_
 
 </div>
 
@@ -31,7 +31,7 @@ Website built with [React JS](https://reactjs.org/) using [Create React App](htt
 
 ## :bulb: About Project
 
-This project is for team work practice. Pull request are necessity for project authors! Thank you for your cooperation!
+This project is for work practice. Thank you!
 
 >Site published at: 
 
@@ -97,9 +97,6 @@ npm run dev
 ## :wink: Authors
 
  Silvija: [Github link](https://github.com/SilvijaZ) <br>
- Agnė: [Github link](https://github.com/AgneIlg)  <br>
- Matas: [Github link](https://github.com/MatasMM)  <br>
- Marta: [Github link](https://github.com/martalionaite) <br>
 
 ## :warning: License
 
