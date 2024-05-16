@@ -141,10 +141,10 @@ export async function apiLoginPost(req, res){
     // cookie keliauja kartu su skelbimu, cookie gaunam string kai prisilogini
     // cookie skirtas narsyklei
     const cookie = [
-        'loginCookieValue=' + randomString(20),
+        'loginCookieValue=' + loginCookieValue,
         'domain=localhost',
         'path=/',
-        'max-age=' + 30*60,
+        'max-age=' + 2000,
         // 'Secure',
         'SameSite=Lax',
         'HttpOnly',  // js nematys cookies

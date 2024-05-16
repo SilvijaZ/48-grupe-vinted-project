@@ -64,7 +64,9 @@ export function Header(){
                 <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
 
                     <div className="col-md-3 mb-2 mb-md-0">
-                        <Logo />
+                        <Link to="/" className="d-inline-flex link-body-emphasis text-decoration-none">
+                            <Logo />
+                        </Link>
                     </div>
 
                     <form className="w-80 me-3 col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -74,7 +76,7 @@ export function Header(){
                     {/* Kai prisijungi prie savo paskyros */}
                     {loginStatus ? userSee : guestSee}
                 </header>
-                <div className='container mb-5'><Nav /></div>
+                <div className='container'><Nav /></div>
             </div>
         </>
     );

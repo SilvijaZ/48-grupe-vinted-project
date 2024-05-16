@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BasicLayout } from "./layout/BasicLayout";
-import { LayoutWithHero } from "./layout/LayoutWithHero";
 import { Page404 } from "./pages/Page404";
 import { PageHome } from "./pages/PageHome";
 // import { PagePramogos } from "./components/pages/PagePramogos";
@@ -31,11 +30,7 @@ function App() {
     <ContextWrapper>
         <BrowserRouter>
           <Routes>
-            {/* <Route Component={LayoutWithHero}>
-              <Route index path='/' element={<PageHome />} />
-            </Route> */}
-            
-            <Route Component={LayoutWithHero}>
+            <Route Component={BasicLayout}>
               <Route index path='/' element={<PageHome />} />
               <Route path='/item-list' element={<PageItemListing />} />
               <Route path='/item-list/:itemId' element={<PageItemListing />} />

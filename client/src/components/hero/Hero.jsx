@@ -27,7 +27,7 @@ export function Hero(){
      
      <div className={`container`}>
 
-            <div className="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabIndex="-1" role="dialog" id="modalSheet">
+            <div className="modal modal-sheet position-static me-5 d-block p-4 py-md-5" tabIndex="-1" role="dialog" id="modalSheet">
         
                 <div className={`container position-static mw-100 d-flex ${style.heroImg} p-5`}>
 

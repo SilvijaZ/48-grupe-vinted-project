@@ -18,7 +18,7 @@ export function NewestItemsList() {
 
     return (
         <section className="container">
-            <h1>Newest items for sale</h1>
+            <h1>Naujienų srautas</h1>
             <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
                 {newestItems.map(item => <ItemCard key={item.id} data={item} />)}
             </div>

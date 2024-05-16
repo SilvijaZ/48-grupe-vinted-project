@@ -1,0 +1,11 @@
+
+.fonas{
+    background-color: rgb(202, 65, 65);
+    height: 500px;
+    width: 600px;
+    background-image: url('../../assets//img/fonas.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 80px;
+}
+

@@ -1,6 +1,8 @@
 .heroImg{
     height: 800px;
-    background-image: url('../../assets//img/hero.jpg');
+    width: 500px;
+    background-image: url('../../assets//img/hero2.jpg');
+    background-size: contain;
     background-repeat: no-repeat;
     margin-top: 40px;
 }
