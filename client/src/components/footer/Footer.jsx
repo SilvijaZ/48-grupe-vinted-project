@@ -9,7 +9,8 @@ export function Footer(){
             <footer className={style.footer}>
                 <div className={style.footerLinks}>
                     <Link to='/' className={style.footerLink}>Vinted</Link>
-                    <Link to='/about' className={style.footerLink}>About</Link>
+                    <Link to='/about' className={style.footerLink}>Apie mūsų platforma</Link>
+                    <Link to='/register' className={style.footerLink}>Registracija</Link>
                 </div>
                 <p className={style.footerText}>&copy; 2024 - All rights reserved</p>
             </footer>

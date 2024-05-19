@@ -12,10 +12,10 @@
 .footerLinks{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 50px;
     font-size: 20px;
     line-height: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .footerLink{

@@ -5,6 +5,7 @@
     width: 20rem;
     color: grey;
     gap: 5px;
+    padding: 50px;
 }
 
 .h1{
@@ -30,7 +31,7 @@
 }
 
 .input{
-    padding: 0.2em 0.5em;
+    /* padding: 1em 1em; */
     font-size: 1.3rem;
     line-height: 1.2em;
     background-color: rgb(192, 206, 255);

@@ -70,8 +70,8 @@ export function PageLogin() {
 
     
     return (
-            <div className="container">
-                <form onSubmit={handleFormSubmit} className={`${style.form} col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-2 col-xxl-4 offset-xxl-4`}>
+            <div className="container p-5">
+                <form onSubmit={handleFormSubmit} className={`${style.form} col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-2`}>
 
                     <h1 className={style.h1}>Login</h1>
 

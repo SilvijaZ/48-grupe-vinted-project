@@ -39,7 +39,7 @@ export function PageItemListing(){
                 {/* <Link className='link-pramogos' to='/'>Pramogos</Link> */}
             </div>
 
-            <h1 className="title">Items</h1>
+            <h1 className="title">Prekės</h1>
 
             <hr />
 
