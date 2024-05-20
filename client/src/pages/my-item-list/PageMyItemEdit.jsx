@@ -9,29 +9,31 @@ import style2 from './Items.module.css';
 
 
 export function PageMyItemEdit() {
+    const [responseText, setResponseText] = useState('');
+    const [responseType, setResponseType] = useState('');
 
     const { itemId } = useParams();
-    const { userId, addMyNewItem, myItems } = useContext(GlobalContext);
+    const { updateMyItem, myItems } = useContext(GlobalContext);
     
     const [item, setItem] = useState({
         // default objektas
+        id: -1,
         name: '',
         price: '',
         img: '',
     });
 
     useEffect(() => {
-        for (const car of myItems) {
-            if (car.id === +itemId) {
-                setItem(car);
+        for (const item of myItems) {
+            if (item.id === +itemId) {
+                setItem(item);
                 break;
             }
         }
 
     }, [myItems, itemId]);
 
-    const [responseText, setResponseText] = useState('');
-    const [responseType, setResponseType] = useState('');
+    
 
     function handleNameChange(e) {
         setItem(prev => ({ ...prev, name: e.target.value }));
@@ -47,6 +49,7 @@ export function PageMyItemEdit() {
 
         fetch('http://localhost:4824/api/upload/item', {
             method: 'POST',
+            credentials: 'include',
             body: formData,
         })
             .then(res => res.json())
@@ -67,17 +70,17 @@ export function PageMyItemEdit() {
             return;
         }
 
-        fetch('http://localhost:4824/api/items/create', {
-            method: 'POST',
+        fetch('http://localhost:4824/api/items/' + item.id, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
+            credentials: 'include',
             body: JSON.stringify({
-                userId,
                 name: item.name,
                 price: +item.price,
-                image: item.img,   // 55 eiluteje
+                image: item.img,
             }),
         })
             .then(res => res.json())
@@ -86,7 +89,7 @@ export function PageMyItemEdit() {
                 setResponseText(data.message);
 
                 if (data.type === 'success') {
-                    addMyNewItem(data.item);
+                    updateMyItem(item);
                 }
             })
             .catch(err => console.error(err));
@@ -95,7 +98,7 @@ export function PageMyItemEdit() {
     return (
         <section className="container">
                 <div className="row">
-                    <h1 className="col-12">Edit item : {itemId} </h1>
+                    <h1 className="col-12">Redaguoti prekę: {itemId} </h1>
                 </div>
                 <div className="row">
                     <form onSubmit={handleFormSubmit} className={`${style.form} col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-2 col-xxl-4 offset-xxl-4`}>
@@ -112,12 +115,12 @@ export function PageMyItemEdit() {
                         </div>
 
                         <div className={style.div}>
-                            <img className={style2.itemImg} src={item.image ? item.image : defaultImg} alt="item" />
+                            <img className={style2.itemImg} src={item.img ? item.img : defaultImg} alt="image" />
                             <input onChange={handleImageChange} type="file" id="image" />
                         </div>
 
                         <div className={style.div}>
-                            <button className={style.button} type="submit">Pakeisti prekę (update)</button>
+                            <button className={style.button} type="submit">Redaguoti</button>
                         </div>
                     </form>
                 </div>

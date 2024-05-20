@@ -5,7 +5,7 @@ const cartRouter = express.Router();
 
 cartRouter.get('/cart-items', (req, res) => {
     return res.send(JSON.stringify({
-        prekės: [
+        data: [
             {
                 id: 1,
                 name: 'Ugly Love knyga',

@@ -34,7 +34,7 @@ export function PageItemListing(){
         <section className="container my-3">
 
 
-        <section className="container">
+        <div className="container">
             <div>
                 {/* <Link className='link-pramogos' to='/'>Pramogos</Link> */}
             </div>
@@ -99,7 +99,7 @@ export function PageItemListing(){
                 </div>
 
             <hr />
-        </section>
+        </div>
 
 
         <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 gap-0">

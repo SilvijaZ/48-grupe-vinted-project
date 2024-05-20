@@ -27,6 +27,7 @@ export function PageMyItemCreate(){
         // paveiksleliu upload path
         fetch('http://localhost:4824/api/upload/item', {
             method: 'POST',
+            credentials: 'include',
             body: formData,
         })
             .then(res => res.json())
@@ -71,10 +72,10 @@ export function PageMyItemCreate(){
 
                 // Pridesim nauja prekes objekta:
                 if(data.type === 'success'){
-                    addMyNewItem(data.newItem);
+                    addMyNewItem(data.item);
                 }
             })
-            .catch(err => console.error(err));
+            .catch(error => console.error(error));
     }
 
 
@@ -83,7 +84,7 @@ export function PageMyItemCreate(){
     return (
         <section className="container">
             <div className="row">
-                <h1 className="col-12">Create my item</h1>
+                <h1 className="col-12">Sukurk naują prekę</h1>
             </div>
             <div className="row">
               
@@ -107,7 +108,7 @@ export function PageMyItemCreate(){
                     </div>
 
                     <div className={style.div}>
-                        <button className={style.button} type="submit">Įkelti prekę</button>
+                        <button className={style.button} type="submit">Įkelti</button>
                     </div>
 
                     <Alert type={responseType} text={responseText} />

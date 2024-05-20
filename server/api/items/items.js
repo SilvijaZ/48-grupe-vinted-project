@@ -51,8 +51,84 @@ itemsRouter.get('/newest', async (req, res) => {
 });
 
 
-itemsRouter.get('/create', async (req, res) => {
-    const { userId, name, price, image } = req.body;
+
+itemsRouter.get('/:itemId', async (req, res, next) => {
+    const {itemId} = req.params;
+
+    if (itemId === '/my') {
+        return next();
+    }
+
+
+    try{
+        // vieno konkretaus prekės paieška pagal id
+        const selectQ = `SELECT * FROM items WHERE id = ?;`;
+        const dbResponse = await connection.execute(selectQ, [itemId]);
+    
+
+        // tuscia, tokio skelbimo nera arba jis neegistuoja, arba buvo istrintas
+        if(dbResponse[0].length === 0){
+            return res.send(JSON.stringify({
+                type: 'error',
+                message: 'Tokia prekė neegzistuoja',
+            }));
+        }
+
+        return res.send(JSON.stringify({
+            type: 'success',
+            item: dbResponse[0][0],  // masyvo pirma reiksme istraukiama
+        }));
+
+    } catch (error){
+        console.log(error);
+
+        return res.send(JSON.stringify({
+            type: 'error',
+            message: 'Error, kai buvo bandoma sukurti prekes skelbimą',
+        }));
+    }
+});
+
+
+itemsRouter.use((req, res, next) => {
+    if (req.user.role === 'public') {
+        return res.send(JSON.stringify({
+            type: 'error',
+            message: 'Login to use this API endpoint',
+        }));
+    }
+
+    next();
+});
+
+
+itemsRouter.get('/my', async (req, res) => {
+    const userId = req.user.id;
+
+
+    try{
+        const selectQ = `SELECT * FROM items WHERE userId = ?;`;
+        const dbResponse = await connection.execute(selectQ, [userId]);
+
+        // gali gauti tuscia arba ne tuscia masyva...ką gaunam tą ir atiduodam.
+        return res.send(JSON.stringify({
+            type: 'success',
+            list: dbResponse[0],
+        }));
+
+    } catch (error){
+        console.log(error);
+
+        return res.send(JSON.stringify({
+            type: 'error',
+            message: 'Error, kai buvo bandoma sukurti prekės skelbimą',
+        }));
+    }
+});
+
+
+itemsRouter.post('/create', async (req, res) => {
+    const { name, price, image } = req.body;
     // console.log(userId, name, price);
 
 
@@ -107,8 +183,8 @@ itemsRouter.get('/create', async (req, res) => {
     // Irasome preke su Insert
     // Dauginam * 100 nes su centais mes norime matyti
     try{
-        const insertQ = `INSERT INTO items (userId, name, image, price) VALUES (?, ?, ?, ?);`;
-        const dbResponse = await connection.execute(insertQ, [userId, name, image, price * 100]);
+        const insertQ = `INSERT INTO items (userId, name, img, price) VALUES (?, ?, ?, ?);`;
+        const dbResponse = await connection.execute(insertQ, [req.user.id, name, image, price * 100]);
 
         // tikrina ar tik yra vienas user, negali buti tokie patys su tokiu pat vardu ir slaptazodziu.
         
@@ -129,7 +205,7 @@ itemsRouter.get('/create', async (req, res) => {
                     id: dbResponse[0].insertId,
                     name,
                     price,
-                    image,
+                    img: image,
                 }
             }));
         }
@@ -151,58 +227,67 @@ itemsRouter.get('/create', async (req, res) => {
 });
 
 
-itemsRouter.get('/my/:userId', async (req, res) => {
-    const {userId} = req.params;
 
-    try{
-        const selectQ = `SELECT * FROM items WHERE userId = ?;`;
-        const dbResponse = await connection.execute(selectQ, [userId]);
+itemsRouter.put('/:itemId', async (req, res) => {
+    const { itemId } = req.params;
+    const { name, price, image } = req.body;
+    const userId = req.user.id;
 
-        // gali gauti tuscia arba ne tuscia masyva...ką gaunam tą ir atiduodam.
-        return res.send(JSON.stringify({
-            type: 'success',
-            list: dbResponse[0],
-        }));
+    try {
+        const selectQ = `SELECT * FROM items WHERE id = ? AND userId = ?;`;
+        const dbResponse = await connection.execute(selectQ, [carId, userId]);
 
-    } catch (error){
-        console.log(error);
+        if (dbResponse[0].length === 0) {
+            return res.send(JSON.stringify({
+                type: 'error',
+                message: 'Such item does not exist',
+            }));
+        }
+
+        if (dbResponse[0].length > 1) {
+            return res.send(JSON.stringify({
+                type: 'error',
+                message: 'Corrupted data',
+            }));
+        }
+
+    } catch (error) {
+        console.error(error);
 
         return res.send(JSON.stringify({
             type: 'error',
-            message: 'Error, kai buvo bandoma sukurti prekės skelbimą',
+            message: 'Critical error while trying to get item details',
         }));
     }
-});
 
+    try {
+        const updateQ = `UPDATE items SET name = ?, price = ?, img = ? WHERE id = ?;`;
+        const dbResponse = await connection.execute(updateQ, [name, price, image, itemId]);
 
-itemsRouter.get('/:itemId', async (req, res) => {
-    const {itemId} = req.params;
-
-    try{
-        // vieno konkretaus prekės paieška pagal id
-        const selectQ = `SELECT * FROM items WHERE id = ?;`;
-        const dbResponse = await connection.execute(selectQ, [itemId]);
-    
-
-        // tuscia, tokio skelbimo nera arba jis neegistuoja, arba buvo istrintas
-        if(dbResponse[0].length === 0){
+        if (dbResponse.affectedRows === 0) {
             return res.send(JSON.stringify({
                 type: 'error',
-                message: 'Tokia prekė neegzistuoja',
+                message: 'Critical error while trying to update car details',
+            }));
+        }
+
+        if (dbResponse.affectedRows > 1) {
+            return res.send(JSON.stringify({
+                type: 'error',
+                message: 'Item details updated, but with some unexpected side effects',
             }));
         }
 
         return res.send(JSON.stringify({
             type: 'success',
-            item: dbResponse[0][0],  // masyvo pirma reiksme istraukiama
+            message: 'Item details updated',
         }));
-
-    } catch (error){
-        console.log(error);
+    } catch (error) {
+        console.error(error);
 
         return res.send(JSON.stringify({
             type: 'error',
-            message: 'Error, kai buvo bandoma sukurti prekes skelbimą',
+            message: 'Critical error while trying to update item details',
         }));
     }
 });

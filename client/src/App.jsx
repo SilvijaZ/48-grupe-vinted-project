@@ -23,6 +23,7 @@ import { PageItemListing } from "./pages/items/PageItemListing";
 import { PageAbout } from "./pages/about/PageAbout";
 import { PageMyItemEdit } from "./pages/my-item-list/PageMyItemEdit";
 import { AccountLayout } from "./layout/AccountLayout";
+import { PageItemListingInner } from "./pages/items/PageItemListingInner";
 
  
 function App() {
@@ -33,25 +34,9 @@ function App() {
             <Route Component={BasicLayout}>
               <Route index path='/' element={<PageHome />} />
               <Route path='/item-list' element={<PageItemListing />} />
-              <Route path='/item-list/:itemId' element={<PageItemListing />} />
+              <Route path='/item-list/:itemId' element={<PageItemListingInner />} />
               <Route path='/about' element={<PageAbout />} />
             </Route>
-
-            <Route Component={<></>}>
-              {/* <Route path='/pramogos/vaizdo-zaidimai' element={<PageVaizdoZaidimai />} />
-              <Route path='/pramogos/vaizdo-zaidimai/:id' element={<PageVaizdoZaidimaiItem />} />
-              <Route path='/pramogos/zaidimai' element={<PageZaidimai />} />
-              <Route path='/pramogos/zaidimai/:id' element={<PageZaidimaiItem />} />
-              <Route path='/pramogos/muzika' element={<PageMuzika />} />
-              <Route path='/pramogos/muzika/:id' element={<PageMuzikosItem />} />
-              <Route path='/pramogos/knygos' element={<PageKnygos />} />
-              <Route path='/pramogos/knygos/:id' element={<PageKnygosItem />} /> */}
-              
-  
-              {/* <Route path='/apie-mus' element={<></>} />
-              <Route path='/musu-platforma' element={<></>} /> */}
-             </Route>
-           
 
             <Route Component={BasicLayout}>
               <Route path='/register' element={<PageRegister />} />
@@ -70,7 +55,6 @@ function App() {
             <Route Component={BasicLayout}>
               <Route path='*' element={<Page404 />} />
             </Route>
-              
           </Routes>
         </BrowserRouter>
       </ContextWrapper>

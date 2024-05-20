@@ -88,8 +88,8 @@ export async function apiRegisterPost(req, res){
     // SQL INJECTION 
 
     try {
-        const SelectQ = `SELECT * FROM users WHERE email = ?;`;
-        const dbResponse = await connection.execute(SelectQ, [email]);
+        const selectQ = `SELECT * FROM users WHERE email = ?;`;
+        const dbResponse = await connection.execute(selectQ, [email]);
 
         // dbResponse[0] = jeigu tucias masyvas, vadinasi galima registruoti
         // dbResponse[0] = jeigu ne tucias masyvas, vadinasi negalima, nes jau yra toks user
@@ -146,7 +146,7 @@ export async function apiRegisterPost(req, res){
     // cia error jei nė vieno nepagauna virsuje
     return res.send(JSON.stringify({
         type: 'error',
-        message: 'Problems while trying to register a user, sorry :( ...',
+        message: 'Problems while trying to register a user, sorry :(',
     }));
     
 }

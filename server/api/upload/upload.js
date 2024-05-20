@@ -6,6 +6,17 @@ export const uploadRouter = express.Router();
 
 // isssaugojam diskStorage, cb - call back, funkcija????
 
+uploadRouter.use((req, res, next) => {
+    if (req.user.role === 'public') {
+        return res.send(JSON.stringify({
+            type: 'error',
+            message: 'Login to use API endpoint',
+        }));
+    }
+    next();
+});
+
+
 const itemStorage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'public/img/upload/item');

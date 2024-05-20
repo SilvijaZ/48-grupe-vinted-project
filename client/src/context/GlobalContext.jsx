@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { createContext } from "react";
@@ -7,7 +8,7 @@ import { createContext } from "react";
 // NUOLAT ATNAUJINK JSON FAILĄ, JEIGU JĮ PAKEITI ir JEIGU JĮ NAUDOJI....
 
 
-const initialContext = {
+export const initialContext = {
     // visos prekės
     allItems: [],
     updateAllItems: () => { },
@@ -35,6 +36,8 @@ const initialContext = {
     // vartotojai
     userId: -1,
     updateUserId: () => { },
+
+    updateMyItem: () => { },
 };
 
 export const GlobalContext = createContext(initialContext);
@@ -86,7 +89,9 @@ export function ContextWrapper(props){
             .catch(console.error);
 
             // Mano prekės
-            fetch('http://localhost:4824/api/items/my' + userId)
+            fetch('http://localhost:4824/api/items/my' + userId, {
+                credentials: 'include,'
+            })
             .then(res => res.json())
             .then(dataObj => {
                 if (dataObj.type === 'success') {
@@ -125,6 +130,22 @@ export function ContextWrapper(props){
     // mano prekiu sarasas
     function updateMyItems(list){
         setMyItems(list);
+    }
+
+    function updateMyItem(item) {
+        setMyItems(prev => {
+            const updatedList = [];
+
+            for (const anotherItem of prev) {
+                if (anotherItem.id !== item.id) {
+                    updatedList.push(anotherItem);
+                } else {
+                    updatedList.push(item);
+                }
+            }
+
+            return updatedList;
+        });
     }
     
     function addMyNewItem(item){
@@ -169,6 +190,8 @@ export function ContextWrapper(props){
         addMyNewItem,
         // istrinti preke
         deletedMyItem,
+
+        updateMyItem,
     };
 
 

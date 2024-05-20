@@ -4,7 +4,7 @@ import { GlobalContext } from '../../context/GlobalContext';
 import { ItemCard } from './ItemCard';
 
 export function NewestItemsList() {
-    const { newestItems, updateNewestItems } = useContext(GlobalContext);
+    const { newestItems, updateNewestItems, allItems } = useContext(GlobalContext);
 
     useEffect(() => {
         if(newestItems.length === 0){
@@ -20,7 +20,7 @@ export function NewestItemsList() {
         <section className="container">
             <h1>Naujienų srautas</h1>
             <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
-                {newestItems.map(item => <ItemCard key={item.id} data={item} />)}
+                {allItems.slice(-6).reverse().map(item => <ItemCard key={item.id} data={item} />)}
             </div>
         </section>
     );

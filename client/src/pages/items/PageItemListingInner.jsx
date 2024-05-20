@@ -1,9 +1,9 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { NewestItemsList } from '../../item-list/NewestItemsList';
-import style from './Header.module.css';
+import { NewestItemsList } from '../../components/item-list/NewestItemsList';
+import style from '../../components/header/Header.module.css';
 import { useContext } from 'react';
-import { GlobalContext } from '../../../content/GlobalContext';
+import { GlobalContext } from '../../context/GlobalContext';
 
 
 export function PageItemListingInner() {
@@ -83,6 +83,7 @@ export function PageItemListingInner() {
                     </div>
                 </div>
             </section>
+            <NewestItemsList/>
         </>
     )
 }

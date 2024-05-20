@@ -7,12 +7,9 @@ import { FaEyeSlash } from "react-icons/fa";
 export function PageRegister() {
     const [email, setEmail] = useState('');
     const [emailErr, setEmailErr] = useState('');
-
     const [password, setPassword] = useState('');
     const [passwordErr, setPasswordErr] = useState('');
-
     const [repeatpassword, setPasswordRepeat] = useState('');
-
 
     const [responseText, setResponseText] = useState('');
     const [responseType, setResponseType] = useState('');
@@ -141,8 +138,8 @@ export function PageRegister() {
                     setResponseType(data.type)  // index.js message: Sorry can't find that!
                     setResponseText(data.message)
                 })
-                .catch(err => {
-                    console.log(err);
+                .catch(error => {
+                    console.log(error);
                     setResponseType('error');
                     setResponseText('Error is kliento puses');
                 });

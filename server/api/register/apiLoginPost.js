@@ -88,6 +88,7 @@ export async function apiLoginPost(req, res){
         const selectQ = `SELECT * FROM users WHERE email = ? AND password = ?;`;
         const dbResponse = await connection.execute(selectQ, [email, hash(password)]);
 
+
         // User toks egistuoja
         if (dbResponse[0].length === 0) {
             return res.send(JSON.stringify({
@@ -114,11 +115,11 @@ export async function apiLoginPost(req, res){
         }));
     }
 
-    const loginCookieValue = randomString(20);
+    const loginToken = randomString(20);
 
     try {
-        const insertQ = `INSERT INTO login_token (userId, cookie) VALUES (?, ?);`;
-        const dbResponse = await connection.execute(insertQ, [userObj.id, loginCookieValue]);
+        const insertQ = `INSERT INTO login_token (userId, token) VALUES (?, ?);`;
+        const dbResponse = await connection.execute(insertQ, [userObj.id, loginToken]);
 
         // sukurti dublikatai
         if (dbResponse[0].affectedRows !== 1) {
@@ -141,7 +142,7 @@ export async function apiLoginPost(req, res){
     // cookie keliauja kartu su skelbimu, cookie gaunam string kai prisilogini
     // cookie skirtas narsyklei
     const cookie = [
-        'loginCookieValue=' + loginCookieValue,
+        'loginToken=' +  loginToken,
         'domain=localhost',
         'path=/',
         'max-age=' + 2000,

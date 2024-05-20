@@ -10,10 +10,6 @@ export function PageMyItemList(){
     function handleDeleteClickBtn(itemId){
        fetch('http://localhost:4824/api/items/' + itemId, {
         method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
        })
             .then(res => res.json())
             .then(data => {

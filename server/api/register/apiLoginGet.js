@@ -6,8 +6,8 @@ export async function apiLoginGet(req, res) {
     const cookieSize = 20;
 
     // Jei nėra sringas ir nėra 20
-    if (typeof req.cookies.loginCookieValue !== 'string'
-        || req.cookies.loginCookieValue.length !== cookieSize) {
+    if (typeof req.cookies.loginToken !== 'string'
+        || req.cookies.loginToken.length !== cookieSize) {
         return res.send(JSON.stringify({
             type: 'error',
             message: 'Login cookie is invalid',
@@ -16,8 +16,8 @@ export async function apiLoginGet(req, res) {
     }
 
     try {
-        const selectQ = 'SELECT userId FROM login_token WHERE cookie = ?;';
-        const dbResponse = await connection.execute(selectQ, [req.cookies.loginCookieValue]);
+        const selectQ = 'SELECT userId FROM login_token WHERE token = ?;';
+        const dbResponse = await connection.execute(selectQ, [req.cookies.loginToken]);
 
         // dublikatai rasti
         if (dbResponse[0].length !== 1) {
